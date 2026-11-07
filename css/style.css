@@ -260,3 +260,51 @@ button:hover {
     }
 
 }
+
+/* ===============================
+   TASK STATISTICS
+================================ */
+
+#task-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background-color: #eff6ff;
+    padding: 20px 10px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #dbeafe;
+}
+
+.stat-card h3 {
+    color: #2563eb;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.stat-card p {
+    color: #64748b;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    #task-stats {
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding: 15px 5px;
+    }
+
+    .stat-card h3 {
+        font-size: 23px;
+    }
+
+    .stat-card p {
+        font-size: 11px;
+    }
+}

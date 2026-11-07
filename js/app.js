@@ -16,6 +16,10 @@ const taskInput = document.getElementById("task-input");
 const taskList = document.getElementById("task-list");
 
 const filterButtons = document.querySelectorAll(".filter-button");
+// Task Statistics Elements
+const totalTasksElement = document.getElementById("total-tasks");
+const pendingTasksElement = document.getElementById("pending-tasks");
+const completedTasksElement = document.getElementById("completed-tasks");
 
 let currentUserId = null;
 let currentFilter = "all";
@@ -123,6 +127,18 @@ async function loadTasks(userId) {
 function displayTasks(tasks) {
 
     taskList.innerHTML = "";
+    // Update task statistics
+    const totalTasks = tasks.length;
+
+    const completedTasks = tasks.filter(function(task) {
+        return task.is_completed;
+    }).length;
+
+    const pendingTasks = totalTasks - completedTasks;
+
+    totalTasksElement.textContent = totalTasks;
+    pendingTasksElement.textContent = pendingTasks;
+    completedTasksElement.textContent = completedTasks;
 
     // Apply selected filter
     let filteredTasks = tasks;
